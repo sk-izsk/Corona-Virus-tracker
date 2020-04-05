@@ -11,7 +11,7 @@
     "splash": {
       "image": "./asset/images/corona-virus-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000"
     },
     "assetBundlePatterns": ["**/*"]
   }
