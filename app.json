@@ -1,0 +1,18 @@
+{
+  "name": "coronaProject",
+  "displayName": "coronaProject",
+  "expo": {
+    "name": "coronaProject",
+    "slug": "coronaProject",
+    "version": "1.0.0",
+    "platforms": ["ios", "android", "web"],
+    "orientation": "portrait",
+    "icon": "./asset/images/corona-virus-icon.png",
+    "splash": {
+      "image": "./asset/images/corona-virus-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": ["**/*"]
+  }
+}

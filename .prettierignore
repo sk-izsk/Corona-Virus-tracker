@@ -1,0 +1,11 @@
+coverage/
+.expo*
+node_modules
+package.json
+package-lock.json
+babel.config.js
+tsconfig.json
+tslint.json
+app.json
+google-services.json 
+.vscode/*

@@ -1,0 +1,77 @@
+{
+  "main": "index.js",
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "web": "expo start --web",
+    "start": "expo start",
+    "test:watch": "jest --watch",
+    "test-ci": "jest --ci --coverage",
+    "test": "jest",
+    "lint": "tslint -p tsconfig.json src/**/*.{ts,tsx}",
+    "format": "prettier --write '**/*.{ts,tsx,js,json,sass,scss,html,md}'",
+    "validate": "yarn lint && yarn compile && yarn test && yarn run prettier-check",
+    "prettier-check": "prettier --check '**/*.{ts,tsx,js,json,sass,scss,html,md}'",
+    "compile": "tsc",
+    "compile-watch": "tsc -w"
+  },
+  "dependencies": {
+    "@react-native-community/masked-view": "^0.1.6",
+    "@react-navigation/native": "^5.1.4",
+    "@reduxjs/toolkit": "^1.3.3",
+    "expo": "~37.0.3",
+    "expo-updates": "~0.1.0",
+    "react": "~16.9.0",
+    "react-dom": "~16.9.0",
+    "react-native": "~0.61.4",
+    "react-native-elements": "^1.2.7",
+    "react-native-gesture-handler": "^1.6.1",
+    "react-native-reanimated": "^1.7.1",
+    "react-native-safe-area-context": "^0.7.3",
+    "react-native-screens": "^2.2.0",
+    "react-native-unimodules": "~0.9.0",
+    "react-native-web": "~0.11.7",
+    "yup": "^0.28.3"
+  },
+  "devDependencies": {
+    "@babel/core": "~7.8.6",
+    "@types/expo": "^33.0.1",
+    "@types/jest": "^25.2.1",
+    "@types/react": "^16.9.32",
+    "@types/react-native": "~0.61.17",
+    "@types/react-test-renderer": "^16.9.2",
+    "babel-preset-expo": "~8.1.0",
+    "jest": "^25.2.7",
+    "jest-expo": "^37.0.0",
+    "react-native-testing-library": "^1.13.0",
+    "react-test-renderer": "^16.13.1",
+    "ts-jest": "^25.3.1",
+    "tslint": "^6.1.1",
+    "tslint-config-airbnb": "^5.11.2",
+    "typescript": "~3.8.3"
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js",
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testMatch": [
+      "**/__tests__/**/*.ts?(x)",
+      "**/?(*.)+(spec|test).ts?(x)"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "tsx"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": {
+          "jsx": "react"
+        }
+      }
+    }
+  },
+  "private": true
+}
