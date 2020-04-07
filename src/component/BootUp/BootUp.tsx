@@ -1,9 +1,11 @@
+import { NovelCovid } from 'novelcovid';
 import React, { useContext } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 import { ThemeContext } from 'react-native-elements';
 
 const BootUp: React.FC = () => {
   const { theme } = useContext(ThemeContext);
+  const track = new NovelCovid().historical(null, 'canada').then((x) => console.log(x));
 
   const styles = StyleSheet.create({
     bootUpContainer: {
