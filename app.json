@@ -7,11 +7,11 @@
     "version": "1.0.0",
     "platforms": ["ios", "android", "web"],
     "orientation": "portrait",
-    "icon": "./asset/images/corona-virus-icon.png",
+    "icon":"./src/asset/images/corona-virus-icon.png",
     "splash": {
-      "image": "./asset/images/corona-virus-icon.png",
+      "image": "./src/asset/images/corona-virus-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#000"
+      "backgroundColor": "#6a1b9a"
     },
     "assetBundlePatterns": ["**/*"]
   }
