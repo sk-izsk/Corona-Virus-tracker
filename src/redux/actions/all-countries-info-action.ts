@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { AsyncStorage } from 'react-native';
 import { getDataForAllCountries } from '../../utils';
 import { Sort } from '../../utils/url/url';
 import { allCountriesInfoSlice } from '../slice/all-countries-info';
@@ -11,8 +12,13 @@ export const fetchAllCountriesApi = (sort: Sort) => {
   return async (dispatch: any, getState: any) => {
     try {
       const response = await axios(getDataForAllCountries(sort));
-      if (response.status !== 200) return;
+      if (response.status !== 200) {
+        const data: string | null = await AsyncStorage.getItem('allCountriesInfo');
+        const asyncStorageData = await (data !== null && JSON.parse(data));
+        return await dispatch(allCountriesInfoActionCreator(asyncStorageData));
+      }
       await dispatch(allCountriesInfoActionCreator(response.data));
+      await AsyncStorage.getItem('allCountriesInfo', response.data);
     } catch (err) {
       console.warn(err);
     }
