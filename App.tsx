@@ -4,7 +4,7 @@ import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { ThemeProvider } from 'react-native-elements';
 import { Provider } from 'react-redux';
 import { BootUp } from './src/component';
-import store from './src/redux/slice/slice';
+import store from './src/redux';
 import { theme } from './src/theme';
 
 export default function App() {

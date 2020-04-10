@@ -2,8 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Image, RefreshControl, SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
 import { ThemeContext } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchApiThunk } from '../../redux/slice/slice';
-import { Store } from '../../redux/stores/types';
+import { fetchSpecificProvinceApi, Store } from '../../redux';
 
 const BootUp: React.FC = () => {
   const { theme } = useContext(ThemeContext);
@@ -12,17 +11,11 @@ const BootUp: React.FC = () => {
 
   const dispatch = useDispatch();
   const todos = useSelector((state: Store) => state);
-  // const fetchApi = async () => {
-  //   const response = await axios(GLOBAL_TOTAL);
-  //   setData(response.data);
-  //   dispatch(updateCasesActionCreator(response.data));
-  //   console.log(data);
-  //   console.log('this is from state', todos.worldWideCases);
-  // };
+
   const [refreshing, setRefreshing] = React.useState(false);
 
   useEffect(() => {
-    dispatch(fetchApiThunk());
+    dispatch(fetchSpecificProvinceApi('Canada', 'ontario', 1));
     setLoad(true);
     setRefreshing(false);
     console.log('this is my state data', todos);
