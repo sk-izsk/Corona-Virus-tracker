@@ -4,7 +4,7 @@ export const GLOBAL_TOTAL: string = `${BASE_URL}/all`;
 export const COUNTRIES: string = `${BASE_URL}/countries`;
 export const HISTORICAL: string = `${BASE_URL}/v2/historical`;
 
-type Sort =
+export type Sort =
   | 'cases'
   | 'todayCases'
   | 'deaths'

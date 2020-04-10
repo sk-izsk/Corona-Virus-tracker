@@ -1,33 +1,24 @@
-import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import {
-  Image,
-  RefreshControl,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { Image, RefreshControl, SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
 import { ThemeContext } from 'react-native-elements';
-import { getDataForSpecificProvinces } from '../../utils/url/url';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchSpecificProvinceApi, Store } from '../../redux';
 
 const BootUp: React.FC = () => {
   const { theme } = useContext(ThemeContext);
   const [load, setLoad] = useState<boolean>(false);
   const [data, setData] = useState<any>();
 
-  const fetchApi = async () => {
-    const response = await axios(getDataForSpecificProvinces('ca', 'quebec'));
-    setData(response.data);
-    console.log(data);
-  };
+  const dispatch = useDispatch();
+  const todos = useSelector((state: Store) => state);
+
   const [refreshing, setRefreshing] = React.useState(false);
 
   useEffect(() => {
-    fetchApi();
+    dispatch(fetchSpecificProvinceApi('Canada', 'ontario', 1));
     setLoad(true);
     setRefreshing(false);
+    console.log('this is my state data', todos);
   }, [refreshing]);
 
   const styles = StyleSheet.create({
@@ -49,8 +40,6 @@ const BootUp: React.FC = () => {
           <RefreshControl refreshing={refreshing} onRefresh={() => setRefreshing(true)} />
         }>
         <View>
-          {data && <Text>{data.active}</Text>}
-
           <Image source={require('../../asset/images/corona-virus-icon.png')} />
         </View>
       </ScrollView>
