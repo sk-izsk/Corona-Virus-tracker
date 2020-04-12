@@ -5,3 +5,11 @@ export const isObjectEmpty = (obj: Object) => {
     return false;
   }
 };
+
+export const isArrayEmpty = (arr: Array<any>) => {
+  if (arr.length === 0) {
+    return true;
+  } else {
+    false;
+  }
+};
