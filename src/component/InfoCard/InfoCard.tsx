@@ -10,9 +10,17 @@ interface Props {
   deaths?: number;
   recovered?: number;
   countryFlag?: string;
+  avatarRequired?: boolean;
 }
 
-const CountryCard: React.FC<Props> = ({ countryName, cases, deaths, recovered, countryFlag }) => {
+const CountryCard: React.FC<Props> = ({
+  countryName,
+  cases,
+  deaths,
+  recovered,
+  countryFlag,
+  avatarRequired = true,
+}) => {
   return (
     <View>
       <ListItem
@@ -22,13 +30,17 @@ const CountryCard: React.FC<Props> = ({ countryName, cases, deaths, recovered, c
           </Center>
         }
         containerStyle={styles.cardStyle}
-        leftAvatar={{
-          source: {
-            uri: `${countryFlag}`,
-          },
-          size: 'medium',
-          containerStyle: { borderColor: '#6a1b9a', borderWidth: 2 },
-        }}
+        leftAvatar={
+          avatarRequired
+            ? {
+                source: {
+                  uri: `${countryFlag}`,
+                },
+                size: 'medium',
+                containerStyle: { borderColor: '#6a1b9a', borderWidth: 2 },
+              }
+            : undefined
+        }
         subtitle={
           <View style={styles.infoContainers}>
             <View style={styles.infoContainer}>
