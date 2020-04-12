@@ -2,11 +2,11 @@ import React from 'react';
 import { ActivityIndicator, Image, StyleSheet, View } from 'react-native';
 import { Input } from 'react-native-elements';
 import { useSelector } from 'react-redux';
+import Block from '../../component/Block/Block';
+import Center from '../../component/Center/Center';
+import CustomText from '../../component/CustomText/CustomText';
 import { Store, WorldWideCases as WorldWideCasesTypes } from '../../redux';
-import { isObjectEmpty } from '../../utils/';
-import Block from '../Block/Block';
-import Center from '../Center/Center';
-import CustomText from '../CustomText/CustomText';
+import { isObjectEmpty } from '../../utils';
 
 export interface Props {}
 
@@ -14,13 +14,13 @@ const WorldWideCases: React.FC<Props> = () => {
   const worldWideData: WorldWideCasesTypes = useSelector((state: Store) => state.worldWideCases);
 
   return (
-    <View>
+    <>
       {isObjectEmpty(worldWideData) === true ? (
         <Center>
           <ActivityIndicator size='large' color='#6a1b9a' />
         </Center>
       ) : (
-        <>
+        <View style={styles.container}>
           <Center style={styles.imageContainer}>
             <Image style={styles.image} source={require('../../asset/images/world.png')} />
             <CustomText type='bold-font'>World wide cases</CustomText>
@@ -66,13 +66,21 @@ const WorldWideCases: React.FC<Props> = () => {
               />
             </View>
           </View>
-        </>
+        </View>
       )}
-    </View>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'space-evenly',
+    flexDirection: 'column',
+    height: 290,
+  },
+
   image: {
     height: 30,
     width: 30,

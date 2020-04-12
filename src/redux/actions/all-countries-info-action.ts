@@ -18,7 +18,7 @@ export const fetchAllCountriesApi = (sort: Sort) => {
         return await dispatch(allCountriesInfoActionCreator(asyncStorageData));
       }
       await dispatch(allCountriesInfoActionCreator(response.data));
-      await AsyncStorage.getItem('allCountriesInfo', response.data);
+      await AsyncStorage.setItem('allCountriesInfo', JSON.stringify(response.data));
     } catch (err) {
       console.warn(err);
     }

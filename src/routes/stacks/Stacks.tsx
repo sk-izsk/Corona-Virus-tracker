@@ -10,7 +10,7 @@ const Stacks: React.FC<Props> = () => {
 
   return (
     <Stack.Navigator>
-      <Stack.Screen name='default screen' component={DefaultScreen} />
+      <Stack.Screen name='Corona tracker' component={DefaultScreen} />
       <Stack.Screen name='boot up screen' component={BootUp} />
     </Stack.Navigator>
   );
