@@ -5,10 +5,11 @@ import {
   specificCountryInfoWithProvincesSlice,
   specificProvinceSlice,
 } from '../slice/specific-country-slice';
-import { worldWideCasesSlice } from '../slice/world-wide-slice';
+import { worldWideCases2Slice, worldWideCasesSlice } from '../slice/world-wide-slice';
 
 export const reducer = combineReducers({
   worldWideCases: worldWideCasesSlice.reducer,
+  worldWideCases2: worldWideCases2Slice.reducer,
   allCountriesInfo: allCountriesInfoSlice.reducer,
   specificCountryInfo: specificCountryInfoSlice.reducer,
   specificCountryInfoWithProvinces: specificCountryInfoWithProvincesSlice.reducer,

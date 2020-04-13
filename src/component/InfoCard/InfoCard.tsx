@@ -5,28 +5,30 @@ import Center from '../Center/Center';
 import CustomText from '../CustomText/CustomText';
 
 interface Props {
-  countryName?: string;
+  name?: string;
   cases?: number;
   deaths?: number;
   recovered?: number;
   countryFlag?: string;
   avatarRequired?: boolean;
+  countryName?: string;
 }
 
-const CountryCard: React.FC<Props> = ({
-  countryName,
+const InfoCard: React.FC<Props> = ({
+  name,
   cases,
   deaths,
   recovered,
   countryFlag,
   avatarRequired = true,
+  countryName,
 }) => {
   return (
     <View>
       <ListItem
         title={
           <Center>
-            <CustomText type='bold-font'>{countryName}</CustomText>
+            <CustomText type='bold-font'>{name}</CustomText>
           </Center>
         }
         containerStyle={styles.cardStyle}
@@ -69,7 +71,7 @@ const CountryCard: React.FC<Props> = ({
   );
 };
 
-export default CountryCard;
+export default InfoCard;
 
 const styles = StyleSheet.create({
   container: {

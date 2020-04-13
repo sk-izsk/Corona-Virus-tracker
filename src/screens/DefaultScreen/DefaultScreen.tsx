@@ -1,14 +1,15 @@
+import { NavigationProp } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
 import { RefreshControl, SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { CustomText } from '../../component';
 import Center from '../../component/Center/Center';
-import { fetchAllCountriesApi, fetchWorldWideCaseApi } from '../../redux';
+import { fetchAllCountriesApi, fetchWorldWideCaseApi, fetchWorldWideCaseApi2 } from '../../redux';
 import AllCountriesList from '../AllCountriesList/AllCountriesList';
 import WorldWideCases from '../WorldWideCases/WorldWideCases';
 
 export interface Props {
-  navigation: any;
+  navigation: NavigationProp<any>;
 }
 
 const DefaultScreen: React.FC<Props> = ({ navigation }) => {
@@ -17,6 +18,7 @@ const DefaultScreen: React.FC<Props> = ({ navigation }) => {
 
   useEffect(() => {
     dispatch(fetchWorldWideCaseApi());
+    dispatch(fetchWorldWideCaseApi2());
     dispatch(fetchAllCountriesApi('cases'));
     setRefreshing(false);
   }, [refreshing]);
@@ -30,13 +32,13 @@ const DefaultScreen: React.FC<Props> = ({ navigation }) => {
         }>
         <View style={styles.container}>
           <View style={styles.worldCasesContainer}>
-            <WorldWideCases />
+            <WorldWideCases navigation={navigation} />
           </View>
           <View style={styles.countriesContainer}>
             <Center style={styles.allCountriesLabel}>
               <CustomText type='bold-font'>All countries</CustomText>
             </Center>
-            <AllCountriesList />
+            <AllCountriesList navigation={navigation} />
           </View>
         </View>
       </ScrollView>

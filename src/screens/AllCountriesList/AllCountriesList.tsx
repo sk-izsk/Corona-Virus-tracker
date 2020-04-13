@@ -1,15 +1,17 @@
+import { NavigationProp } from '@react-navigation/native';
 import React from 'react';
 import { ActivityIndicator, StyleSheet, TouchableOpacity } from 'react-native';
 import { useSelector } from 'react-redux';
-import Center from '../../component/Center/Center';
-import InfoCard from '../../component/InfoCard/InfoCard';
+import { Center, InfoCard } from '../../component/';
 import { SpecificCountryInfo } from '../../redux';
 import { Store } from '../../redux/stores/store';
-import { isArrayEmpty } from '../../utils/helper/helper';
+import { isArrayEmpty } from '../../utils';
 
-interface Props {}
+interface Props {
+  navigation?: NavigationProp<any>;
+}
 
-const AllCountriesList: React.FC<Props> = () => {
+const AllCountriesList: React.FC<Props> = ({ navigation }) => {
   const allCountries: SpecificCountryInfo[] = useSelector((state: Store) => state.allCountriesInfo);
 
   return (
@@ -21,9 +23,16 @@ const AllCountriesList: React.FC<Props> = () => {
       ) : (
         allCountries.map((country: SpecificCountryInfo) => {
           return (
-            <TouchableOpacity key={country.country} style={styles.infoCardContainer}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation?.navigate('Country', {
+                  nameOfCountry: country.country,
+                });
+              }}
+              key={country.country}
+              style={styles.infoCardContainer}>
               <InfoCard
-                countryName={country.country}
+                name={country.country}
                 cases={country.cases}
                 deaths={country.deaths}
                 recovered={country.recovered}

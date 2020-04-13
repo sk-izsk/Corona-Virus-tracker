@@ -18,7 +18,10 @@ export {
 } from './actions/specific-country-info';
 export {
   Actions,
+  Actions2,
   fetchWorldWideCaseApi,
+  fetchWorldWideCaseApi2,
+  updateCase2ActionCreator,
   updateCasesActionCreator,
 } from './actions/world-wide-action';
 export { reducer } from './reducers/reducer';
@@ -28,12 +31,13 @@ export {
   specificCountryInfoWithProvincesSlice,
   specificProvinceSlice,
 } from './slice/specific-country-slice';
-export { worldWideCasesSlice } from './slice/world-wide-slice';
+export { worldWideCases2Slice, worldWideCasesSlice } from './slice/world-wide-slice';
 export { Store } from './stores/store';
 export {
   SpecificCountryInfo,
   SpecificCountryWithProvinces,
   SpecificProvince,
   WorldWideCases,
+  WorldWiseCases2,
 } from './stores/types';
 export default store;

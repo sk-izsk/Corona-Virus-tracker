@@ -5,6 +5,7 @@ import {
   SpecificCountryWithProvinces,
   SpecificProvince,
   WorldWideCases,
+  WorldWiseCases2,
 } from './types';
 
 const store = configureStore({
@@ -20,6 +21,7 @@ export interface Store {
   specificCountryInfo: SpecificCountryInfo;
   specificCountryInfoWithProvinces: SpecificCountryWithProvinces;
   specificProvince: SpecificProvince;
+  worldWideCases2: WorldWiseCases2[];
 }
 
 export default store;
