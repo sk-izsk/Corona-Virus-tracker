@@ -13,6 +13,10 @@
       "resizeMode": "contain",
       "backgroundColor": "#6a1b9a"
     },
-    "assetBundlePatterns": ["**/*"]
+    "assetBundlePatterns": ["**/*"],
+    "android": {
+      "package": "com.coronaTracker.izsk",
+      "versionCode": 1
+    }
   }
 }

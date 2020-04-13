@@ -13,3 +13,7 @@ export const isArrayEmpty = (arr: Array<any>) => {
     false;
   }
 };
+
+export const deathRate = (obj: any) => {
+  return (Number(obj.deaths) / Number(obj.cases)) * 100;
+};
