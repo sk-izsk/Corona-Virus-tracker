@@ -1,5 +1,6 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import { allCountriesInfoSlice } from '../slice/all-countries-info';
+import { searchSlice } from '../slice/search-slice';
 import {
   specificCountryInfoSlice,
   specificCountryInfoWithProvincesSlice,
@@ -14,4 +15,5 @@ export const reducer = combineReducers({
   specificCountryInfo: specificCountryInfoSlice.reducer,
   specificCountryInfoWithProvinces: specificCountryInfoWithProvincesSlice.reducer,
   specificProvince: specificProvinceSlice.reducer,
+  search: searchSlice.reducer,
 });

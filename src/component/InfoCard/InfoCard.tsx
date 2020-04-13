@@ -46,22 +46,26 @@ const InfoCard: React.FC<Props> = ({
         subtitle={
           <View style={styles.infoContainers}>
             <View style={styles.infoContainer}>
-              <Image
-                style={styles.icon}
-                source={require('../../asset/images/corona-virus-icon.png')}
-              />
+              <Center>
+                <Image
+                  style={styles.icon}
+                  source={require('../../asset/images/corona-virus-icon.png')}
+                />
 
-              <CustomText>{cases}</CustomText>
+                <CustomText>{cases}</CustomText>
+              </Center>
             </View>
             <View style={styles.infoContainer}>
-              <Image style={styles.icon} source={require('../../asset/images/recovered.png')} />
-
-              <CustomText>{recovered}</CustomText>
+              <Center>
+                <Image style={styles.icon} source={require('../../asset/images/recovered.png')} />
+                <CustomText>{recovered}</CustomText>
+              </Center>
             </View>
             <View style={styles.infoContainer}>
-              <Image style={styles.icon} source={require('../../asset/images/death.png')} />
-
-              <CustomText>{deaths}</CustomText>
+              <Center>
+                <Image style={styles.icon} source={require('../../asset/images/death.png')} />
+                <CustomText>{deaths}</CustomText>
+              </Center>
             </View>
           </View>
         }
@@ -91,10 +95,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     marginTop: 5,
   },
+
   infoContainer: {
     display: 'flex',
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'space-evenly',
     marginRight: 5,
   },
@@ -111,5 +116,6 @@ const styles = StyleSheet.create({
     borderColor: '#6a1b9a',
     borderWidth: 2,
     borderRadius: 50,
+    height: 120,
   },
 });

@@ -76,3 +76,7 @@ export interface SpecificProvince {
   province: string;
   timeline: Timeline;
 }
+
+export interface Search {
+  search: string;
+}

@@ -1,10 +1,10 @@
 import { NavigationProp } from '@react-navigation/native';
-import React from 'react';
+import React, { useState } from 'react';
 import { ActivityIndicator, Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Input } from 'react-native-elements';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Block, Center, CustomText } from '../../component/';
-import { Store, WorldWideCases as WorldWideCasesTypes } from '../../redux';
+import { getSearchState, Search, Store, WorldWideCases as WorldWideCasesTypes } from '../../redux';
 import { isObjectEmpty } from '../../utils';
 
 export interface Props {
@@ -12,7 +12,11 @@ export interface Props {
 }
 
 const WorldWideCases: React.FC<Props> = ({ navigation }) => {
+  const [searchCountry, setSearchCountry] = useState<string>('');
   const worldWideData: WorldWideCasesTypes = useSelector((state: Store) => state.worldWideCases);
+  const search: Search = useSelector((state: Store) => state.search);
+
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -80,6 +84,11 @@ const WorldWideCases: React.FC<Props> = ({ navigation }) => {
                     source={require('../../asset/images/search.png')}
                   />
                 }
+                value={searchCountry}
+                onChangeText={(value) => {
+                  setSearchCountry(value);
+                  dispatch(getSearchState({ search: value }));
+                }}
               />
             </View>
           </View>
