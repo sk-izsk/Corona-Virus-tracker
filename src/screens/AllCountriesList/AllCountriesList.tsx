@@ -24,11 +24,6 @@ const AllCountriesList: React.FC<Props> = ({ navigation }) => {
   //   if (search.search === '') {
   //     setCountryList(allCountries);
   //   } else {
-  //     // setCountryList((listOfCountry: SpecificCountryInfo[]) => {
-  //     //   return listOfCountry.filter((country: SpecificCountryInfo) => {
-  //     //     return country.country === search.search;
-  //     //   });
-  //     // });
   //     if (countryList.length > 0) {
   //       const newListOfCountry = countryList.find(
   //         (country: SpecificCountryInfo) => country?.country === search.search
