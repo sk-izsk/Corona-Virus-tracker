@@ -69,6 +69,9 @@ const styles = StyleSheet.create({
   infoCardContainer: {
     flex: 1,
     marginBottom: 8,
+    paddingLeft: 8,
+    paddingRight: 8,
+    height: 120,
   },
 });
 

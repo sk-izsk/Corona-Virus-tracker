@@ -24,7 +24,7 @@ const InfoCard: React.FC<Props> = ({
   countryName,
 }) => {
   return (
-    <View>
+    <View style={{ height: 110 }}>
       <ListItem
         title={
           <Center>
@@ -82,7 +82,6 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '95%',
     flexDirection: 'column',
-    // maxHeight: 70,
   },
   icon: {
     width: 30,

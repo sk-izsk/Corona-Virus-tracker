@@ -1,9 +1,9 @@
-export const BASE_URL: string = `https://corona.lmao.ninja`;
+export const BASE_URL: string = `https://corona.lmao.ninja/v2`;
 
 export const GLOBAL_TOTAL: string = `${BASE_URL}/all`;
-export const GLOBAL_TOTAL_2: string = `${BASE_URL}/v2/jhucsse`;
+export const GLOBAL_TOTAL_2: string = `${BASE_URL}/jhucsse`;
 export const COUNTRIES: string = `${BASE_URL}/countries`;
-export const HISTORICAL: string = `${BASE_URL}/v2/historical`;
+export const HISTORICAL: string = `${BASE_URL}/historical`;
 
 export type Sort =
   | 'cases'

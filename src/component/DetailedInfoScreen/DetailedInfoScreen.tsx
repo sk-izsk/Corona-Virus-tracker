@@ -212,6 +212,9 @@ const styles = StyleSheet.create({
   },
   provinceContainer: {
     marginBottom: 10,
+    paddingLeft: 8,
+    paddingRight: 8,
+    marginTop: 10,
   },
   icon: {
     width: 30,
