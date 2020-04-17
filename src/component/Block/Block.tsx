@@ -5,7 +5,7 @@ import CustomText from '../CustomText/CustomText';
 
 export interface Props {
   imageSrc?: ImageSourcePropType;
-  description?: string;
+  description?: string | null;
   data?: string | number;
   style?: any;
 }
@@ -16,12 +16,22 @@ const Block: React.FC<Props> = ({ imageSrc, description, data, style }) => {
       <Center style={styles.imageContainer}>
         <Image style={styles.image} source={imageSrc as ImageSourcePropType} />
       </Center>
-      <View style={styles.dataContainer}>
-        <CustomText style={{ flex: 1, textAlign: 'center' }} type='bold-font'>
-          {description}
-        </CustomText>
-        <CustomText style={{ flex: 1, textAlign: 'center' }}>{data}</CustomText>
-      </View>
+      {description === null && (
+        <View style={styles.dataContainer}>
+          <CustomText style={styles.secondaryDataStyle} type='bold-font'>
+            {data}
+          </CustomText>
+        </View>
+      )}
+      {description !== null && (
+        <View style={styles.dataContainer}>
+          <CustomText style={{ flex: 1, textAlign: 'center' }} type='bold-font'>
+            {description}
+          </CustomText>
+
+          <CustomText style={{ flex: 1, textAlign: 'center' }}>{data}</CustomText>
+        </View>
+      )}
     </Center>
   );
 };
@@ -46,6 +56,10 @@ const styles = StyleSheet.create({
   },
   dataContainer: {
     flex: 4,
+  },
+
+  secondaryDataStyle: {
+    textAlign: 'center',
   },
 });
 

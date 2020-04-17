@@ -2,7 +2,7 @@
   "name": "coronaProject",
   "displayName": "coronaProject",
   "expo": {
-    "name": "coronaProject",
+    "name": "Covid-19 tracker",
     "slug": "coronaProject",
     "version": "1.0.0",
     "platforms": ["ios", "android", "web"],

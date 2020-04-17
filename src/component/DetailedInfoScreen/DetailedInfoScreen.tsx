@@ -81,6 +81,9 @@ const DetailedInfoScreen: React.FC<Props> = ({
               <CustomText fontSize={40} type='bold-font'>
                 {name}
               </CustomText>
+              <CustomText style={{ padding: 6 }}>
+                Refresh the page by swiping down to check if {name} has province details
+              </CustomText>
             </Center>
             <View style={styles.infoDataContainer}>
               <View style={styles.infoContainer}>
@@ -183,7 +186,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-evenly',
-    height: 250,
+    height: 280,
   },
   avatar: {
     borderColor: '#6a1b9a',
@@ -209,6 +212,9 @@ const styles = StyleSheet.create({
   },
   provinceContainer: {
     marginBottom: 10,
+    paddingLeft: 8,
+    paddingRight: 8,
+    marginTop: 10,
   },
   icon: {
     width: 30,
