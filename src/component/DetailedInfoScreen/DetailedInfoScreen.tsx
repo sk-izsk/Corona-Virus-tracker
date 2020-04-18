@@ -10,11 +10,11 @@ import {
   View,
 } from 'react-native';
 import { Avatar } from 'react-native-elements';
-import { useDispatch, useSelector } from 'react-redux';
-import { Block, Center, CustomText } from '../../component/';
-import { Continent, SpecificCountryWithProvinces, WorldWiseCases2 } from '../../redux';
+import { useSelector } from 'react-redux';
+import { BarChartComponent, Block, Center, CustomText, PieChartComponent } from '../../component/';
+import { Continent, WorldWiseCases2 } from '../../redux';
 import { Store } from '../../redux/stores/store';
-import { isArrayEmpty } from '../../utils/helper/helper';
+import { getDataForBarChart, getDataForPieChart, isArrayEmpty } from '../../utils/helper/helper';
 import InfoCard from '../InfoCard/InfoCard';
 
 export interface Props {
@@ -66,11 +66,22 @@ const DetailedInfoScreen: React.FC<Props> = ({
   const continents: Continent[] = useSelector((state: Store) => state.continents);
 
   const deathRate: number | string = ((Number(totalDeath) / Number(total)) * 100).toFixed(2);
-  const countryInfo: SpecificCountryWithProvinces = useSelector(
-    (state: Store) => state.specificCountryInfoWithProvinces
+  const dataForBarChart = getDataForBarChart(
+    total as number,
+    active as number,
+    recover as number,
+    tests as number,
+    critical as number,
+    totalDeath as number
   );
 
-  const dispatch = useDispatch();
+  const dataForPieChart = getDataForPieChart(
+    active as number,
+    recover as number,
+    // tests as number,
+    critical as number,
+    totalDeath as number
+  );
 
   useEffect(() => {
     const specificProvince = countryDetails.filter((countryDetail: WorldWiseCases2) => {
@@ -214,6 +225,8 @@ const DetailedInfoScreen: React.FC<Props> = ({
                   );
                 })}
             </View>
+            <PieChartComponent dataForPieChart={dataForPieChart as any} />
+            <BarChartComponent dataForBarChart={dataForBarChart as any} />
           </View>
         </ScrollView>
       </SafeAreaView>
