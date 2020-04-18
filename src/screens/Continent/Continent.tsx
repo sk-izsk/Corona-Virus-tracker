@@ -19,8 +19,6 @@ const Continent: React.FC<Props> = ({ navigation, route }) => {
     setContinentDetails(continentParam);
   }, [continentParam]);
 
-  console.log(continentDetails);
-
   return (
     <View>
       <DetailedInfoScreen
