@@ -225,7 +225,7 @@ const DetailedInfoScreen: React.FC<Props> = ({
                   );
                 })}
             </View>
-            {imageUrl && (
+            {(imageUrl || name === 'World wide') && (
               <View>
                 <PieChartComponent dataForPieChart={dataForPieChart as any} />
                 <BarChartComponent dataForBarChart={dataForBarChart as any} />
