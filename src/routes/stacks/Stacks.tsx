@@ -5,6 +5,7 @@ import { Avatar } from 'react-native-elements';
 import {
   AboutMe,
   AllCountriesList,
+  Continent,
   CountryDetails,
   DefaultScreen,
   DetailedWorldCases,
@@ -25,6 +26,7 @@ const Stacks: React.FC<Props> = () => {
       <Stack.Screen name='Corona tracker' component={DefaultScreen} />
       <Stack.Screen name='World wide' component={DetailedWorldCases} />
       <Stack.Screen name='Country list' component={AllCountriesList} />
+      <Stack.Screen name='Continent' component={Continent} />
       <Stack.Screen
         options={({ route, navigation }: any) => ({
           headerTitle: route.params.nameOfCountry,

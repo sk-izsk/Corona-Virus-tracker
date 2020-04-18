@@ -4,7 +4,7 @@ import { ActivityIndicator, Image, StyleSheet, TouchableOpacity, View } from 're
 import { Input } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { Block, Center, CustomText } from '../../component/';
-import { getSearchState, Search, Store, WorldWideCases as WorldWideCasesTypes } from '../../redux';
+import { getSearchState, Store, WorldWideCases as WorldWideCasesTypes } from '../../redux';
 import { isObjectEmpty } from '../../utils';
 
 export interface Props {
@@ -14,7 +14,6 @@ export interface Props {
 const WorldWideCases: React.FC<Props> = ({ navigation }) => {
   const [searchCountry, setSearchCountry] = useState<string>('');
   const worldWideData: WorldWideCasesTypes = useSelector((state: Store) => state.worldWideCases);
-  const search: Search = useSelector((state: Store) => state.search);
 
   const dispatch = useDispatch();
 

@@ -80,3 +80,15 @@ export interface SpecificProvince {
 export interface Search {
   search: string;
 }
+
+export interface Continent {
+  updated: number;
+  cases: number;
+  todayCases: number;
+  deaths: number;
+  todayDeaths: number;
+  recovered: number;
+  active: number;
+  critical: number;
+  continent: string;
+}

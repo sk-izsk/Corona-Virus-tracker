@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { AsyncStorage } from 'react-native';
-import { getDataForAllCountries } from '../../utils';
-import { Sort } from '../../utils/url/url';
+import { getDataForAllCountries, Sort } from '../../utils';
 import { allCountriesInfoSlice } from '../slice/all-countries-info';
 
 export const { updateCases: allCountriesInfoActionCreator } = allCountriesInfoSlice.actions;

@@ -6,7 +6,11 @@ import {
   specificCountryInfoWithProvincesSlice,
   specificProvinceSlice,
 } from '../slice/specific-country-slice';
-import { worldWideCases2Slice, worldWideCasesSlice } from '../slice/world-wide-slice';
+import {
+  continentsSlice,
+  worldWideCases2Slice,
+  worldWideCasesSlice,
+} from '../slice/world-wide-slice';
 
 export const reducer = combineReducers({
   worldWideCases: worldWideCasesSlice.reducer,
@@ -16,4 +20,5 @@ export const reducer = combineReducers({
   specificCountryInfoWithProvinces: specificCountryInfoWithProvincesSlice.reducer,
   specificProvince: specificProvinceSlice.reducer,
   search: searchSlice.reducer,
+  continents: continentsSlice.reducer,
 });

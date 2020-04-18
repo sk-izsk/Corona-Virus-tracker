@@ -1,6 +1,7 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { reducer } from '../reducers/reducer';
 import {
+  Continent,
   Search,
   SpecificCountryInfo,
   SpecificCountryWithProvinces,
@@ -24,6 +25,7 @@ export interface Store {
   specificProvince: SpecificProvince;
   worldWideCases2: WorldWiseCases2[];
   search: Search;
+  continents: Continent[];
 }
 
 export default store;

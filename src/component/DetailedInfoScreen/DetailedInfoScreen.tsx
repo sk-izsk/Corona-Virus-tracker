@@ -1,10 +1,18 @@
 import { NavigationProp } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
-import { RefreshControl, SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
+import {
+  ActivityIndicator,
+  RefreshControl,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { Avatar } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { Block, Center, CustomText } from '../../component/';
-import { SpecificCountryWithProvinces, WorldWiseCases2 } from '../../redux';
+import { Continent, SpecificCountryWithProvinces, WorldWiseCases2 } from '../../redux';
 import { Store } from '../../redux/stores/store';
 import { isArrayEmpty } from '../../utils/helper/helper';
 import InfoCard from '../InfoCard/InfoCard';
@@ -22,6 +30,24 @@ export interface Props {
   navigation?: NavigationProp<any>;
 }
 
+const getTheLocalIcon = (name: string) => {
+  if (name === 'Europe') {
+    return require('../../asset/images/europe.png');
+  } else if (name === 'North America') {
+    return require('../../asset/images/north-america.png');
+  } else if (name === 'Asia') {
+    return require('../../asset/images/asia.png');
+  } else if (name === 'South America') {
+    return require('../../asset/images/south-america.png');
+  } else if (name === 'Africa') {
+    return require('../../asset/images/africa.png');
+  } else if (name === 'Oceania') {
+    return require('../../asset/images/oceania.png');
+  } else {
+    return require('../../asset/images/world.png');
+  }
+};
+
 const DetailedInfoScreen: React.FC<Props> = ({
   imageUrl,
   name,
@@ -37,6 +63,7 @@ const DetailedInfoScreen: React.FC<Props> = ({
   const [refreshing, setRefreshing] = useState(false);
   const [provinces, setProvinces] = useState<string[] | undefined>();
   const countryDetails: WorldWiseCases2[] = useSelector((state: Store) => state.worldWideCases2);
+  const continents: Continent[] = useSelector((state: Store) => state.continents);
 
   const deathRate: number | string = ((Number(totalDeath) / Number(total)) * 100).toFixed(2);
   const countryInfo: SpecificCountryWithProvinces = useSelector(
@@ -74,7 +101,7 @@ const DetailedInfoScreen: React.FC<Props> = ({
                     ? {
                         uri: `${imageUrl}`,
                       }
-                    : require('../../asset/images/world.png')
+                    : getTheLocalIcon(name as string)
                 }
                 containerStyle={styles.avatar}
               />
@@ -139,6 +166,37 @@ const DetailedInfoScreen: React.FC<Props> = ({
                 />
               </View>
             </View>
+            {name === 'World wide' && (
+              <View>
+                {isArrayEmpty(continents) === true ? (
+                  <Center>
+                    <ActivityIndicator size='large' color='#6a1b9a' />
+                  </Center>
+                ) : (
+                  continents.map((continent: Continent) => {
+                    return (
+                      <TouchableOpacity
+                        onPress={() => {
+                          navigation?.navigate('Continent', {
+                            continent: continent,
+                          });
+                        }}
+                        key={continent.continent}
+                        style={styles.infoCardContainerForContinent}>
+                        <InfoCard
+                          name={continent.continent}
+                          cases={continent.cases}
+                          deaths={continent.deaths}
+                          recovered={continent.recovered}
+                          avatarRequired={false}
+                        />
+                      </TouchableOpacity>
+                    );
+                  })
+                )}
+              </View>
+            )}
+
             <View>
               {provinces !== undefined &&
                 !isArrayEmpty(provinces as any) &&
@@ -219,6 +277,13 @@ const styles = StyleSheet.create({
   icon: {
     width: 30,
     height: 30,
+  },
+  infoCardContainerForContinent: {
+    flex: 1,
+    marginBottom: 8,
+    paddingLeft: 8,
+    paddingRight: 8,
+    height: 120,
   },
 });
 
