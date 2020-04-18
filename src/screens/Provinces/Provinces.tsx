@@ -26,7 +26,6 @@ const Provinces: React.FC<Props> = ({ route }) => {
     });
   }, []);
 
-  console.log('this is pronvces', provinceDetails);
   return (
     <ScrollView
       refreshControl={

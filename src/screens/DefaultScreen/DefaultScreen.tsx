@@ -4,7 +4,12 @@ import { RefreshControl, SafeAreaView, ScrollView, StyleSheet, View } from 'reac
 import { useDispatch } from 'react-redux';
 import { CustomText } from '../../component';
 import Center from '../../component/Center/Center';
-import { fetchAllCountriesApi, fetchWorldWideCaseApi, fetchWorldWideCaseApi2 } from '../../redux';
+import {
+  fetchAllCountriesApi,
+  fetchContinentApi,
+  fetchWorldWideCaseApi,
+  fetchWorldWideCaseApi2,
+} from '../../redux';
 import AllCountriesList from '../AllCountriesList/AllCountriesList';
 import WorldWideCases from '../WorldWideCases/WorldWideCases';
 
@@ -19,6 +24,7 @@ const DefaultScreen: React.FC<Props> = ({ navigation }) => {
   useEffect(() => {
     dispatch(fetchWorldWideCaseApi());
     dispatch(fetchWorldWideCaseApi2());
+    dispatch(fetchContinentApi('cases'));
     dispatch(fetchAllCountriesApi('cases'));
     setRefreshing(false);
   }, [refreshing]);

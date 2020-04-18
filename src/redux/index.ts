@@ -19,10 +19,13 @@ export {
 export {
   Actions,
   Actions2,
+  ActionsContinents,
+  fetchContinentApi,
   fetchWorldWideCaseApi,
   fetchWorldWideCaseApi2,
   updateCase2ActionCreator,
   updateCasesActionCreator,
+  updateContinentsActionCreator,
 } from './actions/world-wide-action';
 export { reducer } from './reducers/reducer';
 export { allCountriesInfoSlice } from './slice/all-countries-info';
@@ -32,9 +35,14 @@ export {
   specificCountryInfoWithProvincesSlice,
   specificProvinceSlice,
 } from './slice/specific-country-slice';
-export { worldWideCases2Slice, worldWideCasesSlice } from './slice/world-wide-slice';
+export {
+  continentsSlice,
+  worldWideCases2Slice,
+  worldWideCasesSlice,
+} from './slice/world-wide-slice';
 export { Store } from './stores/store';
 export {
+  Continent,
   Search,
   SpecificCountryInfo,
   SpecificCountryWithProvinces,

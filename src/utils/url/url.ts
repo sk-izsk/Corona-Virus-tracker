@@ -3,6 +3,7 @@ export const BASE_URL: string = `https://corona.lmao.ninja/v2`;
 export const GLOBAL_TOTAL: string = `${BASE_URL}/all`;
 export const GLOBAL_TOTAL_2: string = `${BASE_URL}/jhucsse`;
 export const COUNTRIES: string = `${BASE_URL}/countries`;
+export const CONTINENTS: string = `${BASE_URL}/continents`;
 export const HISTORICAL: string = `${BASE_URL}/historical`;
 
 export type Sort =
@@ -39,4 +40,8 @@ export const getDataForSpecificProvinces = (
   numberOfLastDays: number = 1
 ): string => {
   return `${HISTORICAL}/${nameOfTheCountry}/${nameOfProvince}?lastdays=${numberOfLastDays}`;
+};
+
+export const getDataForContinents = (sort: Sort) => {
+  return `${CONTINENTS}?sort=${sort}`;
 };

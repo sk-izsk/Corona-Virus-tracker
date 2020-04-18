@@ -3,11 +3,12 @@ import { View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { DetailedInfoScreen } from '../../component';
 import { Store, WorldWideCases } from '../../redux/';
-// import { deathRate } from '../../utils/helper/helper';
 
-interface Props {}
+interface Props {
+  navigation?: any;
+}
 
-const DetailedWorldCases: React.FC<Props> = () => {
+const DetailedWorldCases: React.FC<Props> = ({ navigation }) => {
   const worldWideCases: WorldWideCases = useSelector((state: Store) => state.worldWideCases);
 
   return (
@@ -21,6 +22,7 @@ const DetailedWorldCases: React.FC<Props> = () => {
         active={worldWideCases.active}
         tests={worldWideCases.tests}
         critical={worldWideCases.critical}
+        navigation={navigation}
       />
     </View>
   );
