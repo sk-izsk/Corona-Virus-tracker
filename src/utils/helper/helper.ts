@@ -81,15 +81,14 @@ export const getDataForBarChart = (
   cases: number,
   active: number,
   recovered: number,
-  tests: number,
   critical: number,
   deaths: number
 ) => {
   return {
-    labels: ['Cases', 'Active', 'Recovered', 'Test', 'Critical', 'Death'],
+    labels: ['Cases', 'Active', 'Recovered', 'Critical', 'Death'],
     datasets: [
       {
-        data: [cases, active, recovered, tests, critical, deaths],
+        data: [cases, active, recovered, critical, deaths],
       },
     ],
   };

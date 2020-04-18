@@ -70,7 +70,7 @@ const DetailedInfoScreen: React.FC<Props> = ({
     total as number,
     active as number,
     recover as number,
-    tests as number,
+    // tests as number,
     critical as number,
     totalDeath as number
   );
@@ -225,8 +225,12 @@ const DetailedInfoScreen: React.FC<Props> = ({
                   );
                 })}
             </View>
-            <PieChartComponent dataForPieChart={dataForPieChart as any} />
-            <BarChartComponent dataForBarChart={dataForBarChart as any} />
+            {imageUrl && (
+              <View>
+                <PieChartComponent dataForPieChart={dataForPieChart as any} />
+                <BarChartComponent dataForBarChart={dataForBarChart as any} />
+              </View>
+            )}
           </View>
         </ScrollView>
       </SafeAreaView>
