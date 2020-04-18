@@ -37,7 +37,7 @@ export const getDataForPieChart = (
     {
       name: 'Active',
       data: active,
-      color: '#fb8c00',
+      color: '#03a9f4',
       legendFontColor: '#000000',
       legendFontSize: 15,
     },
@@ -58,7 +58,7 @@ export const getDataForPieChart = (
     {
       name: 'Critical',
       data: critical,
-      color: '#e65100',
+      color: '#fb8c00',
       legendFontColor: '#000000',
       legendFontSize: 15,
     },
